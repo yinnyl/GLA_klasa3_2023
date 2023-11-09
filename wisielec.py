@@ -1,8 +1,9 @@
 import requests
-import random
+import json
 
 password = requests.get('https://random-word-api.herokuapp.com/word')
-password = ''.join(password.text)
+password = json.loads(password.text)[0]
+password = password
 score = list(password)
 
 for i in range(len(password)):
