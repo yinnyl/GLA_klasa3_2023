@@ -1,4 +1,8 @@
-password = "wisielec"
+import requests
+import random
+
+password = requests.get('https://random-word-api.herokuapp.com/word')
+password = ''.join(password.text)
 score = list(password)
 
 for i in range(len(password)):
@@ -32,6 +36,7 @@ while guess <= 6:
         print(all_letters)
         if tries == 0:
             print("Przegrałeś...")
+            print(password)
     all_letters.append(answer.upper())
     if ''.join(score) == password:
         print("Zgadłeś!!!")
